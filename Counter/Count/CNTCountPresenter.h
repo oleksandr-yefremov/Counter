@@ -7,20 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CNTCountView.h"
 #import "CNTCountInteractorIO.h"
 
 @class CNTRouter;
-
+@protocol CNTCountView;
 
 @interface CNTCountPresenter : NSObject <CNTCountInteractorOutput>
-@property (nonatomic, weak)     id<CNTCountView>            view;
-@property (nonatomic, strong)   id<CNTCountInteractorInput> interactor;
-@property (nonatomic, strong)   CNTRouter *router;
+
+@property (nonatomic, weak) id <CNTCountView> view;
+@property (nonatomic, strong) id <CNTCountInteractorInput> interactor;
+@property (nonatomic, strong) CNTRouter *router;
 
 - (void)updateView;
+
 - (void)increment;
+
 - (void)decrement;
+
 - (void)showDetailScreen;
 
 @end

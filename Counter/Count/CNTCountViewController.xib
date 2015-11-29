@@ -36,7 +36,7 @@
                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="decrement:" destination="-1" eventType="touchUpInside" id="21"/>
+                        <action selector="didTapDecrement:" destination="-1" eventType="touchUpInside" id="21"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="14">
@@ -46,7 +46,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="increment:" destination="-1" eventType="touchUpInside" id="23"/>
+                        <action selector="didTapIncrement:" destination="-1" eventType="touchUpInside" id="23"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fqo-LD-Fb1">
@@ -55,7 +55,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
                     <state key="normal" title="SHOW DETAIL →"/>
                     <connections>
-                        <action selector="tappedShowDetail:" destination="-1" eventType="touchUpInside" id="4Ky-0F-9P3"/>
+                        <action selector="didTapShowDetail:" destination="-1" eventType="touchUpInside" id="4Ky-0F-9P3"/>
                     </connections>
                 </button>
             </subviews>

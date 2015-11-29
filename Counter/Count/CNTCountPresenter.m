@@ -7,69 +7,55 @@
 //
 
 #import "CNTCountPresenter.h"
+#import "CNTCountView.h"
 #import "CNTRouter.h"
-#import "CNTDetailPresenter.h"
 
 
-@interface CNTCountPresenter()
-@property (nonatomic, strong)   NSNumberFormatter*  countFormatter;
+@interface CNTCountPresenter ()
+@property (nonatomic, strong) NSNumberFormatter *countFormatter;
 @end
 
 
 @implementation CNTCountPresenter
 
-- (void)updateView
-{
+- (void)updateView {
     [self.interactor requestCount];
 }
 
-
-- (void)increment
-{
+- (void)increment {
     [self.interactor increment];
 }
 
-
-- (void)decrement
-{
+- (void)decrement {
     [self.interactor decrement];
 }
 
-- (void)showDetailScreen
-{
+- (void)showDetailScreen {
     NSUInteger counterId = self.interactor.counterId;
     [self.router transitionToDetailScreenWithData:counterId];
 }
 
-- (NSNumberFormatter*)countFormatter
-{
-    if (_countFormatter == nil)
-    {
+- (NSNumberFormatter *)countFormatter {
+    if (_countFormatter == nil) {
         _countFormatter = [[NSNumberFormatter alloc] init];
         [_countFormatter setNumberStyle:NSNumberFormatterSpellOutStyle];
     }
-    
+
     return _countFormatter;
 }
 
-
 #pragma mark - Interactor output
 
-- (void)updateCount:(NSUInteger)count
-{
+- (void)updateCount:(NSUInteger)count {
     [self.view setCountText:[self formattedCount:count]];
     [self.view setDecrementEnabled:[self canDecrementCount:count]];
 }
 
-
-- (NSString*)formattedCount:(NSUInteger)count
-{
+- (NSString *)formattedCount:(NSUInteger)count {
     return [self.countFormatter stringFromNumber:@(count)];
 }
 
-
-- (BOOL)canDecrementCount:(NSUInteger)count
-{
+- (BOOL)canDecrementCount:(NSUInteger)count {
     return (count > 0);
 }
 

@@ -11,48 +11,44 @@
 
 NSString *kCNTCounterStoreKey = @"kCNTCounterStoreKey";
 
-@interface CNTCountInteractor()
-@property (nonatomic, assign, readwrite)   NSUInteger  count;
-@property (nonatomic, assign, readwrite)   NSUInteger  counterId;
+@interface CNTCountInteractor ()
+@property (nonatomic, assign, readwrite) NSUInteger count;
+@property (nonatomic, assign, readwrite) NSUInteger counterId;
 @end
 
 @implementation CNTCountInteractor
 
-- (void)requestCount
-{
-    [self updateAndSendCount];
+- (void)requestCount {
+    [self sendCount];
 }
 
-
-- (void)increment
-{
+- (void)increment {
     ++self.count;
-    [self updateAndSendCount];
+    [self storeCountValue:self.count];
+    [self sendCount];
 }
 
-
-- (void)decrement
-{
-	if ([self canDecrement])
-	{
+- (void)decrement {
+    if ([self canDecrement]) {
         --self.count;
-        [self updateAndSendCount];
+        [self storeCountValue:self.count];
+        [self sendCount];
     }
 }
 
-
-- (BOOL)canDecrement
-{
-	return (self.count > 0);
+- (BOOL)canDecrement {
+    return (self.count > 0);
 }
 
-
-- (void)updateAndSendCount
-{
+- (void)storeCountValue:(NSUInteger)count {
+    // DataManager will be called here in case of more complex data persistence
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setInteger:self.count forKey:[@(self.counterId) stringValue]];
+    [defaults setInteger:count forKey:[@(self.counterId) stringValue]];
+}
 
+- (void)sendCount {
     [self.output updateCount:self.count];
 }
+
 
 @end
