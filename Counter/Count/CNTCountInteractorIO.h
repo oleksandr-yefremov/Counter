@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-
 @protocol CNTCountInteractorInput <NSObject>
 - (void)requestCount;
 - (void)increment;
 - (void)decrement;
+@property (nonatomic, assign, readonly) NSUInteger count;
+@property (nonatomic, assign, readonly) NSUInteger counterId;
 @end
 
 

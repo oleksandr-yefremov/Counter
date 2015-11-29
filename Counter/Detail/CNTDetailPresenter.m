@@ -6,61 +6,40 @@
 #import "CNTDetailPresenter.h"
 
 
-@interface CNTDetailPresenter()
-@property (nonatomic, strong)   NSNumberFormatter*  countFormatter;
+@interface DetailStateStorage : NSObject
+@property (nonatomic, assign, readwrite) NSUInteger counterId;
+@end
+
+@implementation DetailStateStorage
+@synthesize counterId = _counterId;
 @end
 
 
+@interface CNTDetailPresenter()
+@property (nonatomic, strong, readwrite) DetailStateStorage *presenterStateStorage;
+@end
+
 @implementation CNTDetailPresenter
+
+//@synthesize count = _count;
+
+#pragma mark - CNTDetailModuleInput
+- (void)configureModuleWithData:(NSUInteger)counterId {
+    self.presenterStateStorage = [DetailStateStorage new];
+    self.presenterStateStorage.counterId = counterId;
+    [self.interactor requestDetails:counterId];
+}
 
 - (void)updateView
 {
-    [self.interactor requestCount];
+    [self.interactor requestDetails:self.presenterStateStorage.counterId];
 }
-
-
-- (void)increment
-{
-    [self.interactor increment];
-}
-
-
-- (void)decrement
-{
-    [self.interactor decrement];
-}
-
-
-- (NSNumberFormatter*)countFormatter
-{
-    if (_countFormatter == nil)
-    {
-        _countFormatter = [[NSNumberFormatter alloc] init];
-        [_countFormatter setNumberStyle:NSNumberFormatterSpellOutStyle];
-    }
-    
-    return _countFormatter;
-}
-
 
 #pragma mark - Interactor output
 
-- (void)updateCount:(NSUInteger)count
+- (void)updateDetails:(NSUInteger)count
 {
-    [self.view setCountText:[self formattedCount:count]];
-    [self.view setDecrementEnabled:[self canDecrementCount:count]];
-}
-
-
-- (NSString*)formattedCount:(NSUInteger)count
-{
-    return [self.countFormatter stringFromNumber:@(count)];
-}
-
-
-- (BOOL)canDecrementCount:(NSUInteger)count
-{
-    return (count > 0);
+    [self.view setCountText:[NSString stringWithFormat:@"%d", count]];
 }
 
 @end

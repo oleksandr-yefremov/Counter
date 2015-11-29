@@ -7,12 +7,10 @@
 
 
 @protocol CNTDetailInteractorInput <NSObject>
-- (void)requestCount;
-- (void)increment;
-- (void)decrement;
+- (void)requestDetails:(NSUInteger)counterId;
 @end
 
 
 @protocol CNTDetailInteractorOutput <NSObject>
-- (void)updateCount:(NSUInteger)count;
+- (void)updateDetails:(NSUInteger)count;
 @end

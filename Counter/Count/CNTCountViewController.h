@@ -16,6 +16,7 @@
 @property (nonatomic, weak) IBOutlet    UILabel*    countLabel;
 @property (nonatomic, weak) IBOutlet    UIButton*   decrementButton;
 @property (nonatomic, weak) IBOutlet    UIButton*   incrementButton;
+@property (nonatomic, weak) IBOutlet    UIButton*   showDetailButton;
 
 @property (nonatomic, strong)   CNTCountPresenter*  presenter;
 @end

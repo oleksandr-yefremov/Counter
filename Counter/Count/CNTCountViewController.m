@@ -55,4 +55,9 @@
     [self.presenter decrement];
 }
 
+- (IBAction)tappedShowDetail:(id)sender
+{
+    [self.presenter showDetailScreen];
+}
+
 @end

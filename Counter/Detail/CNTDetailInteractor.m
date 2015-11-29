@@ -4,6 +4,7 @@
 //
 
 #import "CNTDetailInteractor.h"
+#import "CNTCountInteractorIO.h"
 
 
 @interface CNTDetailInteractor()
@@ -13,38 +14,15 @@
 
 @implementation CNTDetailInteractor
 
-- (void)requestCount
+- (void)requestDetails:(NSUInteger)counterId
 {
-    [self sendCount];
-}
+    // Retrieve counter value from persistence layer
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSUInteger counterValue = (NSUInteger) [defaults integerForKey:[@(counterId) stringValue]];
+    self.count = counterValue;
 
-
-- (void)increment
-{
-    ++self.count;
-    [self sendCount];
-}
-
-
-- (void)decrement
-{
-	if ([self canDecrement])
-	{
-        --self.count;
-        [self sendCount];
-    }
-}
-
-
-- (BOOL)canDecrement
-{
-	return (self.count > 0);
-}
-
-
-- (void)sendCount
-{
-    [self.output updateCount:self.count];
+    // Update presenter
+    [self.output updateDetails:self.count];
 }
 
 @end

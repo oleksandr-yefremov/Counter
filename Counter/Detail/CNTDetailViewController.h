@@ -11,8 +11,6 @@
 
 @interface CNTDetailViewController : UIViewController <CNTDetailView>
 @property (nonatomic, weak) IBOutlet    UILabel*    countLabel;
-@property (nonatomic, weak) IBOutlet    UIButton*   decrementButton;
-@property (nonatomic, weak) IBOutlet    UIButton*   incrementButton;
 
 @property (nonatomic, strong)   CNTDetailPresenter*  presenter;
 @end

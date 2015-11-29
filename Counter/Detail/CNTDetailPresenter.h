@@ -6,13 +6,12 @@
 #import <Foundation/Foundation.h>
 #import "CNTDetailView.h"
 #import "CNTDetailInteractorIO.h"
+#import "CNTDetailModuleInput.h"
 
 
-@interface CNTDetailPresenter : NSObject <CNTDetailInteractorOutput>
+@interface CNTDetailPresenter : NSObject <CNTDetailInteractorOutput, CNTDetailModuleInput>
 @property (nonatomic, weak)     id<CNTDetailView>            view;
 @property (nonatomic, strong)   id<CNTDetailInteractorInput> interactor;
 
 - (void)updateView;
-- (void)increment;
-- (void)decrement;
 @end

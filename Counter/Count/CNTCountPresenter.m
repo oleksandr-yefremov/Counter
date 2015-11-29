@@ -7,6 +7,8 @@
 //
 
 #import "CNTCountPresenter.h"
+#import "CNTRouter.h"
+#import "CNTDetailPresenter.h"
 
 
 @interface CNTCountPresenter()
@@ -33,6 +35,11 @@
     [self.interactor decrement];
 }
 
+- (void)showDetailScreen
+{
+    NSUInteger counterId = self.interactor.counterId;
+    [self.router transitionToDetailScreenWithData:counterId];
+}
 
 - (NSNumberFormatter*)countFormatter
 {

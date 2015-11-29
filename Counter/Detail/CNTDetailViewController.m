@@ -33,23 +33,4 @@
 }
 
 
-- (void)setDecrementEnabled:(BOOL)enabled
-{
-    self.decrementButton.enabled = enabled;
-}
-
-
-#pragma mark - Actions
-
-- (IBAction)increment:(id)sender
-{
-    [self.presenter increment];
-}
-
-
-- (IBAction)decrement:(id)sender
-{
-    [self.presenter decrement];
-}
-
 @end

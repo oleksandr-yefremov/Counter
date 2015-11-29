@@ -8,5 +8,4 @@
 
 @protocol CNTDetailView <NSObject>
 - (void)setCountText:(NSString*)countText;
-- (void)setDecrementEnabled:(BOOL)enabled;
 @end
