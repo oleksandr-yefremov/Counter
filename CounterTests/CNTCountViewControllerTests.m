@@ -98,15 +98,15 @@
 {
     [self tapButton:self.view.incrementButton];
 
-    [verify(self.presenter) increment];
+    [verify(self.presenter) didTapIncrement];
 }
 
 
 - (void)testDecrementButtonRequestsDecrement
 {
     [self tapButton:self.view.decrementButton];
-    
-    [verify(self.presenter) decrement];
+
+    [verify(self.presenter) didTapDecrement];
 }
 
 

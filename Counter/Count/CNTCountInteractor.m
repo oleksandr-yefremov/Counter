@@ -18,21 +18,28 @@ NSString *kCNTCounterStoreKey = @"kCNTCounterStoreKey";
 
 @implementation CNTCountInteractor
 
+- (instancetype)init {
+    if (self = [super init]) {
+        self.counterId = 1000;
+    }
+    return self;
+}
+
 - (void)requestCount {
-    [self sendCount];
+    [self updateCount];
 }
 
 - (void)increment {
     ++self.count;
     [self storeCountValue:self.count];
-    [self sendCount];
+    [self updateCount];
 }
 
 - (void)decrement {
     if ([self canDecrement]) {
         --self.count;
         [self storeCountValue:self.count];
-        [self sendCount];
+        [self updateCount];
     }
 }
 
@@ -46,8 +53,8 @@ NSString *kCNTCounterStoreKey = @"kCNTCounterStoreKey";
     [defaults setInteger:count forKey:[@(self.counterId) stringValue]];
 }
 
-- (void)sendCount {
-    [self.output updateCount:self.count];
+- (void)updateCount {
+    [self.presenter updateCount:self.count];
 }
 
 

@@ -31,8 +31,8 @@
     [super setUp];
     
     CNTCountInteractor* interactor = [[CNTCountInteractor alloc] init];
-    interactor.output = self;
-    self.interactor = interactor;
+    interactor.presenter = self;
+    self.interactor      = interactor;
 }
 
 

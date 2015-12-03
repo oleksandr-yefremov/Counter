@@ -37,7 +37,7 @@
     presenter.view = view;
 
     presenter.interactor = interactor;
-    interactor.output = presenter;
+    interactor.presenter = presenter;
 
     // Set module's input data
     id<CNTDetailModuleInput> moduleInput = ((id<CNTDetailModuleInput>) presenter);

@@ -16,13 +16,13 @@
 
 - (void)requestDetails:(NSUInteger)counterId
 {
-    // Retrieve counter value from persistence layer
+    // Retrieve counter value from Data Manager
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSUInteger counterValue = (NSUInteger) [defaults integerForKey:[@(counterId) stringValue]];
     self.count = counterValue;
 
     // Update presenter
-    [self.output updateDetails:self.count];
+    [self.presenter updateDetails:self.count];
 }
 
 @end

@@ -29,6 +29,7 @@
 
 - (void)createScreen
 {
+    // Wireframe - Module A
     CNTCountViewController* view = [[CNTCountViewController alloc] init];
 	CNTCountPresenter* presenter = [[CNTCountPresenter alloc] init];
 	CNTCountInteractor* interactor = [[CNTCountInteractor alloc] init];
@@ -37,7 +38,7 @@
     presenter.view = view;
 
     presenter.interactor = interactor;
-    interactor.output = presenter;
+    interactor.presenter = presenter;
 
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:view];
     presenter.router = [[CNTRouter alloc] initWithNavigationController:navigationController];

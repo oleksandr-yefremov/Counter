@@ -24,7 +24,7 @@
     [self.presenter updateView];
 }
 
-#pragma mark - Count view
+#pragma mark - CNTCountView
 
 - (void)setCountText:(NSString *)countText {
     self.countLabel.text = countText;
@@ -37,15 +37,15 @@
 #pragma mark - Actions
 
 - (IBAction)didTapIncrement:(id)sender {
-    [self.presenter increment];
+    [self.presenter didTapIncrement];
 }
 
 - (IBAction)didTapDecrement:(id)sender {
-    [self.presenter decrement];
+    [self.presenter didTapDecrement];
 }
 
 - (IBAction)didTapShowDetail:(id)sender {
-    [self.presenter showDetailScreen];
+    [self.presenter didTapShowDetail];
 }
 
 @end

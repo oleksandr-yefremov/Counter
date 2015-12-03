@@ -52,17 +52,17 @@
 
 - (void)testIncrementRequestsInteractorIncrement
 {
-	[self.presenter increment];
-    
-    [verify(self.interactor) increment];
+    [self.presenter didTapIncrement];
+
+    [verify(self.interactor) didTapIncrement];
 }
 
 
 - (void)testDecrementRequestsInteractorDecrement
 {
-	[self.presenter decrement];
-    
-    [verify(self.interactor) decrement];
+    [self.presenter didTapDecrement];
+
+    [verify(self.interactor) didTapDecrement];
 }
 
 

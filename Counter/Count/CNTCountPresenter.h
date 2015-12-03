@@ -20,10 +20,10 @@
 
 - (void)updateView;
 
-- (void)increment;
+- (void)didTapIncrement;
 
-- (void)decrement;
+- (void)didTapDecrement;
 
-- (void)showDetailScreen;
+- (void)didTapShowDetail;
 
 @end

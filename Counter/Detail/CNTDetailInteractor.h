@@ -8,5 +8,5 @@
 
 
 @interface CNTDetailInteractor : NSObject <CNTDetailInteractorInput>
-@property (nonatomic, weak) id<CNTDetailInteractorOutput> output;
+@property (nonatomic, weak) id<CNTDetailInteractorOutput> presenter;
 @end

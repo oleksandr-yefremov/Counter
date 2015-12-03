@@ -22,15 +22,15 @@
     [self.interactor requestCount];
 }
 
-- (void)increment {
+- (void)didTapIncrement {
     [self.interactor increment];
 }
 
-- (void)decrement {
+- (void)didTapDecrement {
     [self.interactor decrement];
 }
 
-- (void)showDetailScreen {
+- (void)didTapShowDetail {
     NSUInteger counterId = self.interactor.counterId;
     [self.router transitionToDetailScreenWithData:counterId];
 }
